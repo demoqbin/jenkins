@@ -18,14 +18,6 @@ pipeline {
             }
         }
 
-        stage ("Set2") {
-            steps {
-                script {
-                    sh "gcloud auth list"
-                }
-            }
-        }
-
         stage ("Sync") {
             steps {
                 script {
