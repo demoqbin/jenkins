@@ -21,7 +21,7 @@ pipeline {
         stage ("Sync") {
             steps {
                 script {
-                    sh 'gsutil -m rsync -d -r -x "^reports_(\\d+)\\.py$" ${env.SCRIPT_LOC}/  ${BUCKET}/dags/'
+                    echo 'gsutil -m rsync -d -r -x "^reports_(\\d+)\\.py$" $(env.SCRIPT_LOC)/  ${BUCKET}/dags/'
                 }
             }
         }
