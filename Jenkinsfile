@@ -10,7 +10,7 @@ pipeline {
 
     stages {
 
-        stage ('Set') {
+        stage ('Set1') {
             steps {
                 script {
                     GCP_PROJECT_ID = "sample_project"   
@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-        stage ("Set") {
+        stage ("Set2") {
             steps {
                 script {
                     sh "gcloud auth list"
