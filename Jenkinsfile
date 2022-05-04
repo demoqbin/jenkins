@@ -1,8 +1,6 @@
 pipeline {
 
-    agent { 
-        label 'master'
-    }
+    agent any
 
     environment {
         GIT_BRANCH = "${GIT_BRANCH}"
