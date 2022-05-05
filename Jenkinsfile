@@ -26,7 +26,7 @@ pipeline {
                             gsutil -m rsync -d -r -x "^reports_(\\d+)\\.py$" ${SCRIPT_LOC}/  ${GIT_BRANCH}/dags/
                             '''
                         } else {
-                            echo ${GIT_BRANCH}
+                            sh('echo ${GIT_BRANCH}')
                         }
                 }
             }
