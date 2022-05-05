@@ -21,7 +21,7 @@ pipeline {
         stage ("Sync") {
             steps {
                 script {
-                    echo '''#!/bin/bash
+                    sh '''#!/bin/bash
                     gsutil -m rsync -d -r -x "^reports_(\\d+)\\.py$" ${SCRIPT_LOC}/  ${BUCKET}/dags/
                     '''
                 }
