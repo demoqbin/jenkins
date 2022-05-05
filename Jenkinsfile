@@ -21,9 +21,14 @@ pipeline {
         stage ("Sync") {
             steps {
                 script {
-                    sh '''#!/bin/bash
-                     gsutil -m rsync -d -r -x "^reports_(\\d+)\\.py$" ${SCRIPT_LOC}/  ${GIT_BRANCH}/dags/
-                    '''
+                    script {
+                        if (env.GIT_BRANCH != 'origin/main') {
+                            sh '''#!/bin/bash
+                            gsutil -m rsync -d -r -x "^reports_(\\d+)\\.py$" ${SCRIPT_LOC}/  ${GIT_BRANCH}/dags/
+                            '''
+                        } else {
+                            echo ${GIT_BRANCH}
+                        }
                 }
             }
         }
