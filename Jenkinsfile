@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     sh '''#!/bin/bash
-                    gsutil -m rsync -d -r -x "^reports_(\\d+)\\.py$" ${SCRIPT_LOC}/  ${BRANCH_NAME}/dags/
+                    gsutil -m rsync -d -r -x "^reports_(\\d+)\\.py$" ${env.SCRIPT_LOC}/  ${BUCKET}/dags/
                     '''
                 }
             }
